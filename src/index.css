@@ -10,7 +10,7 @@ body {
 }
 
 .screen {
-    background: linear-gradient(45deg , #E1F6FF 15%, #73D7FF);
+    background: linear-gradient(-45deg , #E1F6FF 15%, #73D7FF);
     width: 100vw;
     height: 100vh;
     color: white;
@@ -49,6 +49,22 @@ h4 {
     font-size: 1.2em;;
 }
 
+.forecast-section {
+    width: 95vw;
+    height: 25vh;
+    background-color: #6bd5ff;
+    border-radius: 15px;
+    margin: 3vh auto;
+}
+
+ul li {
+    padding: .5vh 5vw;
+    margin: 1vh 0;
+}
+
+span {
+    text-align: right;
+}
 
 .additional-wrapper{
     width: 98%;

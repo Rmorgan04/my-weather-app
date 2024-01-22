@@ -5,26 +5,38 @@ import Weather from './Components/Weather';
 
 function App() {
 
+
   const [lat, setLat] = useState([]);
   const [lon, setLon] = useState([]);
   const [weatherData, setWeatherData] = useState([]);
+  const [forecastData, setForecastData] = useState([]);
 
   useEffect(() => {
-    async function fetchWeatherData() {
+    async function fetchData() {
       navigator.geolocation.getCurrentPosition((position) => {
         setLat(position.coords.latitude);
         setLon(position.coords.longitude);
       })
-  
-      await fetch(`${process.env.REACT_APP_API_URL}/weather/?lat=${lat}&lon=${lon}&units=imperial&APPID=${process.env.REACT_APP_API_KEY}`)
-      .then(res => res.json())
-      .then(result => {
+
+      await Promise.all([
+        fetch(`https://api.openweathermap.org/data/2.5/weather/?lat=${lat}&lon=${lon}&units=imperial&APPID=${process.env.REACT_APP_API_KEY}`)
+        .then(res => res.json())
+        .then(result => {
         setWeatherData(result)
         console.log(result);
-      });
+        }),
+
+        fetch(`https://api.openweathermap.org/data/2.5/forecast/?lat=${lat}&lon=${lon}&units=imperial&APPID=${process.env.REACT_APP_API_KEY}`)
+        .then(res => res.json())
+        .then(result => {
+        setForecastData(result)
+        console.log(result);
+        })
+      ]);
+  
   };
   
-  fetchWeatherData();
+  fetchData();
   }, [lat, lon]);
 
   
@@ -32,7 +44,7 @@ function App() {
   return (
     <div>
       {(typeof weatherData.main != 'undefined') ? (
-        <Weather data={weatherData} />
+        <Weather weatherData={weatherData} forecastData={forecastData}/>
       ) : (
         <div>Unable to Load Data</div>
       )}

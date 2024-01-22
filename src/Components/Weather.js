@@ -1,18 +1,18 @@
-import { useState, useEffect } from "react";
 
-function Weather({data}) {
+import Forecast from "./Forecast";
+
+function Weather({weatherData, forecastData}) {
 
     let city = '';
-    if (data.name === "Cherokee") {
+    if (weatherData.name === "Cherokee") {
         city = 'Tahlequah';
     } else {
-        city = data.name;
+        city = weatherData.name;
     }
 
-    const sunriseDate = new Date(data.sys.sunrise *1000).toLocaleTimeString();
-    const sunsetDate = new Date(data.sys.sunset * 1000).toLocaleTimeString();
+    const sunriseDate = new Date(weatherData.sys.sunrise *1000).toLocaleTimeString();
+    const sunsetDate = new Date(weatherData.sys.sunset * 1000).toLocaleTimeString();
 
-    console.log(sunriseDate, sunsetDate);
 
     return (
         <main className="screen">
@@ -21,16 +21,16 @@ function Weather({data}) {
             </header>
             <section className="main-section">
                 <div className="weather-info">
-                    <h3>{Math.floor(data.main.temp)}&deg; F</h3>
-                    <h4 className="description">{data.weather[0].description}</h4>
-                    <h4>{Math.floor(data.main.temp_max)}&deg; / {Math.floor(data.main.temp_min)}&deg; Feels like {Math.floor(data.main.feels_like)}&deg;</h4>
+                    <h3>{Math.floor(weatherData.main.temp)}&deg; F</h3>
+                    <h4 className="description">{weatherData.weather[0].description}</h4>
+                    <h4>{Math.floor(weatherData.main.temp_max)}&deg; / {Math.floor(weatherData.main.temp_min)}&deg; Feels like {Math.floor(weatherData.main.feels_like)}&deg;</h4>
                 </div>
                 <div>
 
                 </div>
             </section>
-            <section>
-
+            <section className="forecast-section">
+                <Forecast forecastData={forecastData} />
             </section>
             <section className="additional-info">
                 <div className="additional-wrapper">
@@ -53,14 +53,14 @@ wb_twilight
 water_drop
 </span></p>
                         <p className="additional-text" >Humidity</p>
-                        <p>{data.main.humidity}%</p>
+                        <p>{weatherData.main.humidity}%</p>
                     </div>
                     <div className="additional-item">
                         <p className="wind"><span class="material-symbols-outlined">
     air
     </span></p>
                         <p className="additional-text">Wind</p>
-                        <p>{data.wind.speed} mph</p>
+                        <p>{weatherData.wind.speed} mph</p>
                     </div>
                     
                 </div>
