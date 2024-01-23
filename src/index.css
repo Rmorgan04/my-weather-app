@@ -25,14 +25,14 @@ header {
 }
 
 .weather-info {
-    padding-left: 10vw;
+    padding-left: 5vw;
     display: flex;
     flex-direction: column;
     height: 15vh;
 }
 
 .city-name {
-    padding-left: 9vw;
+    padding-left: 10vw;
     font-size: 3em;
 }
 
@@ -42,28 +42,34 @@ h3 {
 
 .description {
     text-transform: capitalize;
-    margin: .6em 0;
+    margin: .3em 0;
 }
 
 h4 {
     font-size: 1.2em;;
 }
 
-.forecast-section {
+.forecast-container {
     width: 95vw;
     height: 25vh;
     background-color: #6bd5ff;
     border-radius: 15px;
-    margin: 3vh auto;
+    margin: 1vh auto;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 ul li {
-    padding: .5vh 5vw;
+    padding: .2vh 5vw;
     margin: 1vh 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
 }
 
-span {
-    text-align: right;
+.small {
+    transform: scale(.75);
 }
 
 .additional-wrapper{
@@ -71,7 +77,7 @@ span {
     display: grid;
     grid-template-columns: auto auto;
     justify-items: center;
-    margin: 3vh auto;
+    margin: 1vh auto;
 }
 
 .additional-item {
