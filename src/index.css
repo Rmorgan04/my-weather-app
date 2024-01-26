@@ -10,7 +10,7 @@ body {
 }
 
 .screen {
-    background: linear-gradient(-45deg , #E1F6FF 15%, #73D7FF);
+    background: linear-gradient(to right , #73D7FF, #55ceff ,#73D7FF);
     width: 100vw;
     height: 100vh;
     color: white;
@@ -19,7 +19,7 @@ body {
 
 header {
     width: 100%;
-    height: 13%;
+    height: 10%;
     display: flex;
     align-items: center;
 }
@@ -33,16 +33,16 @@ header {
 
 .city-name {
     padding-left: 10vw;
-    font-size: 3em;
+    font-size: 2.5em;
 }
 
 h3 {
-    font-size: 3em;
+    font-size: 2.5em;
 }
 
 .description {
     text-transform: capitalize;
-    margin: .3em 0;
+    margin: .1em 0 .3em 0;
 }
 
 h4 {
@@ -52,11 +52,12 @@ h4 {
 .forecast-container {
     width: 95vw;
     height: 25vh;
-    background-color: #6bd5ff;
+    background-color: #00abf0;
     border-radius: 15px;
-    margin: 1vh auto;
+    margin: .3vh auto 1vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     
 }
 
@@ -81,8 +82,8 @@ ul li {
 }
 
 .additional-item {
-    background-color: #6bd5ff;
-    border-radius: 15%;
+    background-color: #00abf0;
+    border-radius: 15px;
     width: 95%;
     height: 95%;
     padding: 2em 2em 3em 2em;
@@ -109,4 +110,9 @@ ul li {
 .additional-text {
     margin: .2em auto;
     font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    
 }

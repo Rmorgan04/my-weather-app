@@ -3,6 +3,9 @@ import Forecast from "./Forecast";
 
 function Weather({weatherData, forecastData}) {
 
+    const date = new Date().toLocaleDateString();
+    const time = new Date().toLocaleTimeString().slice(0, 4) + new Date().toLocaleTimeString().slice(7);
+
     let city = '';
     if (weatherData.name === "Cherokee") {
         city = 'Tahlequah';
@@ -10,8 +13,8 @@ function Weather({weatherData, forecastData}) {
         city = weatherData.name;
     }
 
-    const sunriseDate = new Date(weatherData.sys.sunrise *1000).toLocaleTimeString();
-    const sunsetDate = new Date(weatherData.sys.sunset * 1000).toLocaleTimeString();
+    const sunriseDate = new Date(weatherData.sys.sunrise *1000).toLocaleTimeString().slice(0, 4) + new Date(weatherData.sys.sunrise *1000).toLocaleTimeString().slice(7);
+    const sunsetDate = new Date(weatherData.sys.sunset * 1000).toLocaleTimeString().slice(0, 4) + new Date(weatherData.sys.sunset * 1000).toLocaleTimeString().slice(7);
 
 
     return (
@@ -60,11 +63,14 @@ water_drop
     air
     </span></p>
                         <p className="additional-text">Wind</p>
-                        <p>{weatherData.wind.speed} mph</p>
+                        <p>{Math.floor(weatherData.wind.speed)} mph</p>
                     </div>
                     
                 </div>
             </section>
+            <footer>
+                <p>Last Updated on {date} at {time}</p>
+            </footer>
         </main>
     );
 };
