@@ -15,6 +15,9 @@ body {
     height: 100vh;
     color: white;
     overflow: hidden;
+    position: relative;
+    max-width: 35em;
+    margin: 0 auto;
 }
 
 header {
@@ -22,18 +25,31 @@ header {
     height: 10%;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
-.weather-info {
-    padding-left: 5vw;
+.main-section {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     height: 15vh;
 }
 
+.icon-container {
+    position: absolute;
+    right: 7%;
+    top: 7.7%;
+}
+
+.weather-info {
+    padding-left: 9%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
 .city-name {
-    padding-left: 10vw;
     font-size: 2.5em;
+    font-weight: 600;
 }
 
 h3 {
@@ -42,7 +58,7 @@ h3 {
 
 .description {
     text-transform: capitalize;
-    margin: .1em 0 .3em 0;
+    margin: .2em 0 .5em 0;
 }
 
 h4 {
@@ -50,34 +66,57 @@ h4 {
 }
 
 .forecast-container {
-    width: 95vw;
+    width: 95%;
     height: 25vh;
     background-color: #00abf0;
     border-radius: 15px;
     margin: .3vh auto 1vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     
+    max-width: 30em;
+    max-height: 15em;
+}
+
+
+.forecast-item {
+    margin: 0 .5em;
+}
+
+.forecast-icon {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+
+.green {
+    color: lightgreen;
+    font-size: 1.2em;
+}
+
+.humid {
+    font-size: .7em;
+}
+
+ul {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 1em 1em;
 }
 
 ul li {
-    padding: .2vh 5vw;
-    margin: 1vh 0;
+    margin: .2em;
     list-style: none;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-}
-
-.small {
-    transform: scale(.75);
+   
 }
 
 .additional-wrapper{
-    width: 98%;
+    width: 100%;
     display: grid;
-    grid-template-columns: auto auto;
-    justify-items: center;
+    grid-template-columns: 49% 49%;
+    gap: 0 8px;
     margin: 1vh auto;
 }
 
@@ -88,7 +127,17 @@ ul li {
     height: 95%;
     padding: 2em 2em 3em 2em;
     text-align: center;
-    place-self: center;
+    align-self: center;
+    max-width: 14.5em;
+    max-height: 14.5em;
+}
+
+.item-1, .item-3 {
+    justify-self: end;
+}
+
+.item-2, .item-4 {
+    justify-self: start;
 }
 
 .sunrise {
@@ -114,5 +163,48 @@ ul li {
 
 footer {
     text-align: center;
-    
+}
+
+
+
+@media screen and (height > 700px) {
+    footer{
+        margin-top: 2vh;
+    }
+}
+
+@media screen and (height > 800px)  {
+    .city-name{
+        font-size: 3em;
+    }
+
+    .icon-container {
+        transform: scale(1.15);
+    }
+
+    .forecast-container {
+        margin-top: 2vh;
+    }
+
+
+    .additional-wrapper {
+        margin: 2.5vh auto;
+    }
+
+    h4 {
+        font-size: 1.5em;
+    }
+
+    .description {
+        margin: .4em 0 .7em 0;
+    }
+
+    p, li {
+        font-size: 1.2em;
+    }
+
+    footer {
+        margin-top: 3vh;
+    }
+
 }

@@ -9,11 +9,28 @@ function Forecast({forecastData}) {
         <div className="forecast-container">
             <ul>
                 {forecastList && forecastList.length > 0 && forecastList
-        .filter((item, index, self) => self.findIndex((i) => new Date(i.dt * 1000).toDateString() === new Date(item.dt * 1000).toDateString()) === index)
-        .map((item) => (
+            .filter((item) => new Date(item.dt * 1000).getHours() === 15)
+            .map((item) => (
             <li key={item.dt}>
-            {new Date(item.dt * 1000).toLocaleDateString()} <span>{item.main.humidity}% {Math.floor(item.main.temp_max)}&deg; {Math.floor(item.main.temp_min)}&deg;</span>
+                <span className="forecast-info-left">
+                    {new Date(item.dt * 1000).toLocaleDateString()}
+                </span>
+                <span className="forecast-info-right">
+                        <span>
+                            <img  className="forecast-icon forecast-item" src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`} alt='weather' /> 
+                        </span>
+                        <span className="forecast-item">
+                            <span className="material-symbols-outlined humid">water_drop</span>
+                            {item.main.humidity}%  
+                        </span>
+                        <span>   
+                            <span className="green">&#8593;</span>
+                            {Math.floor(item.main.temp_max)}&deg;
+                        </span>
+                    
+                </span> 
             </li>
+
         ))}
             </ul>
         </div>
