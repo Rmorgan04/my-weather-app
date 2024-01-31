@@ -5,6 +5,8 @@
     font-weight: 100;
 }
 
+
+
 body {
     font-family: 'Inconsolata', monospace;
 }
@@ -101,16 +103,19 @@ ul {
     height: 100%;
     margin: 0 auto;
     padding: 1em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 ul li {
-    margin: .2em;
+    
     list-style: none;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-   
+    justify-content: space-between;   
 }
+
 
 .additional-wrapper{
     width: 100%;
