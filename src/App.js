@@ -10,7 +10,7 @@ function App() {
   const [lon, setLon] = useState([]);
   const [weatherData, setWeatherData] = useState([]);
   const [forecastData, setForecastData] = useState([]);
-  const [icon, setIcon] = useState([]);
+  
 
   useEffect(() => {
     async function fetchData() {
@@ -32,19 +32,11 @@ function App() {
         .then(result => {
         setForecastData(result)
         console.log(result);
-        }),
-
-        fetch(`https://api.openweathermap.org/img/w/?lat=${lat}&lon=${lon}&units=imperial&APPID=${process.env.REACT_APP_API_KEY}`)
-        .then(res => res.json())
-        .then(result => {
-        setIcon(result)
-        console.log(result);
         })
+        
       ]);
   
   };
-
-  console.log(icon);
   
   fetchData();
   }, [lat, lon]);
@@ -54,7 +46,7 @@ function App() {
   return (
     <div>
       {(typeof weatherData.main != 'undefined') ? (
-        <Weather icon={icon} weatherData={weatherData} forecastData={forecastData}/>
+        <Weather weatherData={weatherData} forecastData={forecastData}/>
       ) : (
         <div>Unable to Load Data</div>
       )}
