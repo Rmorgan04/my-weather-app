@@ -5,7 +5,11 @@
     font-weight: 100;
 }
 
-
+.no-data {
+    text-align: center;
+    font-size: 4em;
+    margin-top: 5vh;
+}
 
 body {
     font-family: 'Inconsolata', monospace;
@@ -73,7 +77,6 @@ h4 {
     background-color: #00abf0;
     border-radius: 15px;
     margin: .3vh auto 1vh;
-    
     max-width: 30em;
     max-height: 15em;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import Weather from './Components/Weather';
-require('dotenv').config();
+// require('dotenv').config();
 
 
 function App() {
@@ -21,14 +21,14 @@ function App() {
       })
 
       await Promise.all([
-        fetch(`https://api.openweathermap.org/data/2.5/weather/?lat=${lat}&lon=${lon}&units=imperial&APPID=${process.env.REACT_APP_API_KEY}`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&APPID=${process.env.REACT_APP_API_KEY}`)
         .then(res => res.json())
         .then(result => {
         setWeatherData(result)
         console.log(result);
         }),
 
-        fetch(`https://api.openweathermap.org/data/2.5/forecast/?lat=${lat}&lon=${lon}&units=imperial&APPID=${process.env.REACT_APP_API_KEY}`)
+        fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&APPID=${process.env.REACT_APP_API_KEY}`)
         .then(res => res.json())
         .then(result => {
         setForecastData(result)
@@ -49,7 +49,7 @@ function App() {
       {(typeof weatherData.main != 'undefined') ? (
         <Weather weatherData={weatherData} forecastData={forecastData}/>
       ) : (
-        <div>Unable to Load Data</div>
+        <div className='no-data'><h2>Unable to Load Data</h2></div>
       )}
       
 

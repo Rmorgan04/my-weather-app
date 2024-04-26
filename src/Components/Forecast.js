@@ -4,12 +4,13 @@ function Forecast({forecastData}) {
 
     const forecastList = forecastData.list;
    
+   
 
     return (
         <div className="forecast-container">
             <ul>
                 {forecastList && forecastList.length > 0 && forecastList
-            .filter((item) => new Date(item.dt * 1000).getHours() === 15)
+            .filter((item) => new Date(item.dt * 1000).getHours() === 13)
             .map((item) => (
             <li key={item.dt}>
                 <span className="forecast-info-left">
